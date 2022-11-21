@@ -1,5 +1,9 @@
 import fs from 'fs';
 
+type measurement = {
+  depth: number;
+};
+
 const runPuzzle = (): void => {
   const puzzleInput: number[] = [];
   fs.readFile('/Users/fredrikstahl/workspace/adventOfCode/2021/puzzleInput-1.txt', 'utf8', (err, data) => {
@@ -9,7 +13,6 @@ const runPuzzle = (): void => {
       puzzleInput.push(parseInt(row));
     });
     const noOfDepthIncreases = reportSonar(puzzleInput);
-    console.log(noOfDepthIncreases);
   });
 };
 
