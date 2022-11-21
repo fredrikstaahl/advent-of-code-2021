@@ -14,22 +14,28 @@ const runPuzzle = () => {
             puzzleInput.push(parseInt(row));
         });
         const noOfDepthIncreases = (0, exports.reportSonar)(puzzleInput);
+        console.log(noOfDepthIncreases);
     });
 };
 const reportSonar = (sonarReport) => {
     let depthIncrease = 0;
-    for (let i = 0; i < sonarReport.length; i++) {
+    let previousSum = 0;
+    for (let i = 0; i < sonarReport.length - 2; i++) {
+        let slidingWindowSum = 0;
+        for (let y = i; y < i + 3; y++) {
+            slidingWindowSum += sonarReport[y];
+        }
         //report starts with no previous measurement
-        if (i == 0)
+        if (i == 0) {
+            previousSum = slidingWindowSum;
             continue;
-        const previousDepth = sonarReport[i - 1];
-        const depth = sonarReport[i];
-        if (depth > previousDepth) {
+        }
+        if (slidingWindowSum > previousSum) {
             depthIncrease++;
         }
+        previousSum = slidingWindowSum;
     }
     return depthIncrease;
 };
 exports.reportSonar = reportSonar;
-//Runs puzzle prints result.
 runPuzzle();
