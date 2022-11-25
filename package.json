@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:build": "tsc -w",
-    "start:run": "nodemon build/puzzle3.js",
+    "start:run": "nodemon build/day2/puzzle2.js",
     "start": "concurrently npm:start:*",
     "test": "jest --watchAll --verbose"
   },

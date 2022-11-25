@@ -16,8 +16,6 @@ export const getPuzzleInputFromFile = async (): Promise<SubmarineCommand[]> => {
   const puzzleInput: SubmarineCommand[] = [];
   return new Promise((resolve, reject) => {
     fs.readFile('/Users/fredrikstahl/workspace/adventOfCode/2021/puzzleInput-day2.txt', 'utf8', (err, data) => {
-      if (err) console.log(err);
-
       data.split('\n').forEach((row) => {
         const action = row.split(' ')[0];
         const value = row.split(' ')[1];
@@ -36,17 +34,21 @@ export type SubmarineCommand = {
 export class Position {
   horizontal: number = 0;
   depth: number = 0;
+  aim: number = 0;
 
   up(value: number): void {
-    this.depth -= value;
+    //this.depth -= value;
+    this.aim -= value;
   }
 
   down(value: number): void {
-    this.depth += value;
+    //this.depth += value;
+    this.aim += value;
   }
 
   forward(value: number): void {
     this.horizontal += value;
+    this.depth += this.aim * value;
   }
 }
 

@@ -1,7 +1,7 @@
-import { dive, SubmarineCommand, Position } from '../puzzle3';
+import { dive, Position, SubmarineCommand } from '../day2/puzzle2';
 
-describe('Test puzzle 3', () => {
-  test('sample input', () => {
+describe.only('Test day 3', () => {
+  test('test puzzle 2', () => {
     const commands: SubmarineCommand[] = [];
     commands.push({ action: 'forward', value: 5 });
     commands.push({ action: 'down', value: 5 });
@@ -10,9 +10,10 @@ describe('Test puzzle 3', () => {
     commands.push({ action: 'down', value: 8 });
     commands.push({ action: 'forward', value: 2 });
 
-    const finalPosition = dive(commands);
+    const finalPosition: Position = dive(commands);
 
-    expect(finalPosition.depth).toEqual(10);
+    expect(finalPosition.depth).toEqual(60);
     expect(finalPosition.horizontal).toEqual(15);
+    expect(finalPosition.horizontal * finalPosition.depth).toEqual(900);
   });
 });

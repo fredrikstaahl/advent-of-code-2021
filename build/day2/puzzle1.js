@@ -25,8 +25,6 @@ const getPuzzleInputFromFile = () => __awaiter(void 0, void 0, void 0, function*
     const puzzleInput = [];
     return new Promise((resolve, reject) => {
         fs_1.default.readFile('/Users/fredrikstahl/workspace/adventOfCode/2021/puzzleInput-day2.txt', 'utf8', (err, data) => {
-            if (err)
-                console.log(err);
             data.split('\n').forEach((row) => {
                 const action = row.split(' ')[0];
                 const value = row.split(' ')[1];

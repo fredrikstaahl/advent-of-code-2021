@@ -2,7 +2,7 @@ import fs from 'fs';
 
 const runPuzzle = (): void => {
   const puzzleInput: number[] = [];
-  fs.readFile('/Users/fredrikstahl/workspace/adventOfCode/2021/puzzleInput-1.txt', 'utf8', (err, data) => {
+  fs.readFile('/Users/fredrikstahl/workspace/adventOfCode/2021/puzzleInput-day1.txt', 'utf8', (err, data) => {
     if (err) console.log(err);
 
     data.split('\n').forEach((row) => {
